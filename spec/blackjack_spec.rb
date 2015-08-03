@@ -1,6 +1,6 @@
 describe "#welcome" do
   it "prints a welcome message to screen" do
-    expect($stdout).to receive(:puts).with("Welcome to the Blackjack Table")
+    expect($stdout).to receive(:puts).with("Welcome to a Wu-Tang Banger, aka 'Black Jack Mulligan from Canada' \n Courtesy of Grow and the Wu-Tang Clan \n Skip the introduction, prosate the [lib] function...")
     welcome
   end
 end
@@ -21,12 +21,12 @@ describe "#display_card_total" do
   end
 
   it "prints the value of the cards to the screen" do
-    expect($stdout).to receive(:puts).with("Your cards add up to 8")
+    expect($stdout).to receive(:puts).with("Your cards add up to 8\n")
     display_card_total(8)
   end
 
   it "does not hardcode the card total" do
-    expect($stdout).to receive(:puts).with("Your cards add up to 12")
+    expect($stdout).to receive(:puts).with("Your cards add up to 12\n")
     display_card_total(12)
   end
 end
@@ -34,7 +34,7 @@ end
 
 describe "#prompt_user" do
   it "gives instructions for hitting or staying" do
-    expect($stdout).to receive(:puts).with("Type 'h' to hit or 's' to stay")
+    expect($stdout).to receive(:puts).with("You gots to be kidding, you gots to be kidding. Type 'h' to hit or 's' to stay")
     prompt_user
   end
 end
@@ -50,7 +50,7 @@ end
 
 describe "#end_game" do
   it "prints apology, card total, and thank you message" do
-    expect($stdout).to receive(:puts).with("Sorry, you hit 27. Thanks for playing!")
+    expect($stdout).to receive(:puts).with("Wack MC's only lasted one season, or session. Sorry, you hit 27. Out here, ya knowhatImean? Thanks for playing!")
     end_game(27)
   end
 end
@@ -78,7 +78,7 @@ describe "#hit?" do
   end
 
   it "calls on #prompt_user then #get_user_input" do
-    expect($stdout).to receive(:puts).with("Type 'h' to hit or 's' to stay")
+    expect($stdout).to receive(:puts).with("You gots to be kidding, you gots to be kidding. Type 'h' to hit or 's' to stay")
     expect(self).to receive(:get_user_input).and_return("s")
     hit?(7)
   end
@@ -118,11 +118,11 @@ describe "#runner" do
     expect(self).to receive(:deal_card).at_least(3).times.and_return(10)
     expect(self).to receive(:get_user_input).and_return("h")
 
-    expect($stdout).to receive(:puts).with("Welcome to the Blackjack Table")
-    expect($stdout).to receive(:puts).with("Your cards add up to 20")
-    expect($stdout).to receive(:puts).with("Type 'h' to hit or 's' to stay")
-    expect($stdout).to receive(:puts).with("Your cards add up to 30")
-    expect($stdout).to receive(:puts).with("Sorry, you hit 30. Thanks for playing!")
+    expect($stdout).to receive(:puts).with("Welcome to a Wu-Tang Banger, aka 'Black Jack Mulligan from Canada' \n Courtesy of Grow and the Wu-Tang Clan \n Skip the introduction, prosate the [lib] function...")
+    expect($stdout).to receive(:puts).with("Your cards add up to 20\n")
+    expect($stdout).to receive(:puts).with("You gots to be kidding, you gots to be kidding. Type 'h' to hit or 's' to stay")
+    expect($stdout).to receive(:puts).with("Your cards add up to 30\n")
+    expect($stdout).to receive(:puts).with("Wack MC's only lasted one season, or session. Sorry, you hit 30. Out here, ya knowhatImean? Thanks for playing!")
     runner
   end
 end
